@@ -1,0 +1,47 @@
+html {
+    background-color: #1E2A5E;
+    color: white; 
+}
+
+
+.top {
+    background-color: #1E2A5E;
+    padding: 15px 15px;
+    width: 50%;
+    margin-left: 25%;
+    
+}
+
+
+
+.profile-pic {
+    border:5px solid white;
+    
+}
+
+
+
+
+.list {
+    color:#1E2A5E;
+    background-color: white;
+    padding: 15px 15px;
+}
+
+a {
+    color: #1E2A5E;
+}
+
+.flag {
+    width: 15px;
+    height: 15px;
+    margin-left: 10px;
+}
+
+.language {
+    color:white;
+}
+
+footer {
+    margin-top: 10px;
+}
