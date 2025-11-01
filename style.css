@@ -1,3 +1,10 @@
+/*
+  style.css
+  Purpose: Site-wide styles for the HTML resume. Contains color variables,
+  responsive layout, typographic rules, and interactive/animation styles.
+  Notes: Respect prefers-reduced-motion. Uses Inter from Google Fonts.
+*/
+
 /* Responsive resume stylesheet — refreshed palette + flexbox layout */
 /* Import a modern, readable webfont */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
@@ -137,4 +144,38 @@ a:focus-visible{
 
 /* Muted visited state to avoid too-bright visited colors */
 a:visited{opacity:0.95}
+
+/* Animations: subtle entrance for cards and small UI feedback
+   - fadeUp: used on .list elements for a gentle slide-up entrance
+   - pulse: used for small accents if desired
+   Accessibility: animations disabled when user prefers reduced motion.
+*/
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(10px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+@keyframes pulse{
+  0%{transform:scale(1)}
+  50%{transform:scale(1.03)}
+  100%{transform:scale(1)}
+}
+
+/* Apply entrance animation to primary content cards with a small stagger */
+.list{opacity:0;transform:translateY(10px);animation:fadeUp .48s cubic-bezier(.2,.9,.2,1) both;}
+.list:nth-of-type(1){animation-delay:0.06s}
+.list:nth-of-type(2){animation-delay:0.12s}
+.list:nth-of-type(3){animation-delay:0.18s}
+.list:nth-of-type(4){animation-delay:0.24s}
+.list:nth-of-type(5){animation-delay:0.30s}
+.list:nth-of-type(6){animation-delay:0.36s}
+.list:nth-of-type(7){animation-delay:0.42s}
+
+/* Small hover pulse for the primary accent label */
+.label-accent:active{animation:pulse .32s ease}
+
+/* Respect user's reduced motion preference */
+@media (prefers-reduced-motion: reduce){
+  .list, .profile-pic, a, .quote-controls button, .label-accent{animation:none !important;transition:none !important}
+}
 

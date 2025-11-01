@@ -1,5 +1,10 @@
-// Quote generator (English + Español)
-(() => {
+/*
+	script.js
+	Purpose: Small UI module to display motivational quotes on English and Spanish pages.
+	Exports: none (IIFE). Usage: include <script src="./script.js" defer> on pages.
+	Behavior: Finds #quote / #quote-es and updates their textContent. Safe no-op if elements missing.
+*/
+(function(){
 	const quotesEn = [
 		{text: "Success usually comes to those who are too busy to be looking for it.", author: "Henry David Thoreau"},
 		{text: "Don't watch the clock; do what it does. Keep going.", author: "Sam Levenson"},
