@@ -7,26 +7,32 @@
     <link rel="stylesheet" href="../style.css"/>
 </head>
 <body>
-    <div class="top">
-        <h1 class="name">Drake Hamby</h1>
-        <img class="profile-pic" src="../assets/profile_pic.jpg" alt="Una foto de Drake Hamby" height="350"/>
-        <h2 class="summary-header">Resumen/Objetivo</h2>
-        <p class="summary-text">Desarrollador web con una sólida base en HTML, CSS, JavaScript, Python y C#. Apasionado 
-            por ampliar sus habilidades en el desarrollo de software y videojuegos. Buscando contribuir 
-            con mi experiencia técnica mientras crezco en un entorno dinámico y con visión de futuro.</p>
-                <!-- Generador de citas motivacionales -->
-                <div class="quote-card" aria-labelledby="quote-label-es">
-                    <h2 id="quote-label-es">Cita Motivacional</h2>
-                    <blockquote id="quote-es" class="quote-text" aria-live="polite">"Presiona el botón para recibir una cita motivacional."</blockquote>
-                    <div class="quote-controls">
-                        <button id="quote-btn-es" class="label-accent" aria-controls="quote-es">Nueva cita</button>
-                    </div>
-                </div>
-    </div>
-    <hr />
+        <a class="skip-link" href="#main">Saltar al contenido</a>
 
-    <div class="list">
-        <h2>Educación</h2>
+        <header class="top" role="banner">
+                <h1 class="name">Drake Hamby</h1>
+                <img class="profile-pic" src="../assets/profile_pic.jpg" alt="Una foto de Drake Hamby" />
+                <div>
+                    <h2 class="summary-header">Resumen/Objetivo</h2>
+                    <p class="summary-text">Desarrollador web con una sólida base en HTML, CSS, JavaScript, Python y C#. Apasionado
+                        por ampliar sus habilidades en el desarrollo de software y videojuegos. Buscando contribuir
+                        con mi experiencia técnica mientras crezco en un entorno dinámico y con visión de futuro.</p>
+                </div>
+        </header>
+        <hr />
+
+        <main id="main" role="main">
+            <!-- Generador de citas motivacionales -->
+            <div class="list quote-card" aria-labelledby="quote-label-es">
+                <h2 id="quote-label-es">Cita Motivacional</h2>
+                <blockquote id="quote-es" class="quote-text" aria-live="polite">"Presiona el botón para recibir una cita motivacional."</blockquote>
+                <div class="quote-controls">
+                    <button id="quote-btn-es" class="label-accent" aria-controls="quote-es">Nueva cita</button>
+                </div>
+            </div>
+
+        <div class="list">
+                <h2 id="education">Educación</h2>
         <ul>
             <li><b>CS50x (Curso de Ciencias de la Computación)</b><br />
                 Universidad de Harvard (Online) – Agosto 2024 – Presente</li><br />
@@ -111,8 +117,18 @@
 </div>
     <hr />
 
-<a class="language" href="../index.html">English</a><img class="flag" src="../assets/flag_usa.png"/>
-<footer>© Drake Hamby. Todos los derechos reservados.</footer>
+            </div>
+        </main>
+
+        <div class="utility" role="navigation" aria-label="Language switch">
+            <a class="language" href="../index.html">English</a>
+            <img class="flag" src="../assets/flag_usa.png" alt="US flag"/>
+        </div>
+
+        <footer role="contentinfo">© Drake Hamby. Todos los derechos reservados.</footer>
+
+        <!-- load site script for quote generator -->
+        <script src="../script.js" defer></script>
 
 </body>
 </html>
