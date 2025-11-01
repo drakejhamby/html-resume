@@ -13,6 +13,9 @@
 }
 
 *{box-sizing:border-box}
+/* Skip link: hidden until focused for keyboard users */
+.skip-link{position:absolute;left:-9999px;top:auto;background:var(--card-bg);color:var(--text-on-card);padding:8px 12px;border-radius:4px;z-index:1000}
+.skip-link:focus, .skip-link:focus-visible{left:20px;top:20px}
 html,body{
   height:100%;
   margin:0;
@@ -33,12 +36,12 @@ body{display:flex;flex-direction:column;align-items:center;gap:20px;padding:28px
 
 /* Card sections */
 .list{width:100%;max-width:var(--max-width);background:var(--card-bg);color:var(--text-on-card);padding:20px;border-radius:12px;box-shadow:0 10px 30px rgba(2,6,23,0.25);text-align:left}
-.list h2{margin-top:0;color:var(--082030);text-decoration:underline;color:var(--text-on-card)}
+.list h2{margin-top:0;text-decoration:underline;color:var(--text-on-card)}
 .list ul{margin:10px 0 0 1.1rem}
 .list li{margin:6px 0}
-
 .a{color:var(--accent)}
 .a:hover{text-decoration:underline}
+.language:focus, a:focus{outline:3px solid rgba(6,182,212,0.25);outline-offset:2px}
 .utility{display:flex;align-items:center;gap:8px}
 .flag{width:18px;height:18px;vertical-align:middle;border-radius:3px}
 .language{color:var(--text-on-bg);font-weight:600}
