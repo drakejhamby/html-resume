@@ -1,405 +1,71 @@
-/* Responsive resume stylesheet — flexbox layout + media queries */
+/* Responsive resume stylesheet — refreshed palette + flexbox layout */
 :root{
-  --bg: #1E2A5E;
-  --accent: #1E2A5E;
-  --card-bg: #ffffff;
-  --text-on-bg: #ffffff;
-  --text-on-card: #1E2A5E;
-  --max-width: 1000px;
+  /* New accessible palette: deep navy background, soft cards, teal accent, warm gold for highlights */
+  --bg: #081228;           /* deep navy */
+  --bg-2: #0f2740;         /* subtle gradient secondary */
+  --card-bg: #FFFFFF;      /* cards */
+  --text-on-bg: #E6F2FF;   /* light text on dark */
+  --text-on-card: #082030; /* dark text on card */
+  --accent: #06b6d4;      /* teal */
+  --muted: #94a3b8;       /* muted slate */
+  --accent-2: #F59E0B;    /* warm gold accent */
+  --max-width: 1080px;
 }
 
 *{box-sizing:border-box}
-html,body{height:100%;margin:0;padding:0;font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;background:var(--bg);color:var(--text-on-bg)}
+html,body{
+  height:100%;
+  margin:0;
+  padding:0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  background: linear-gradient(180deg,var(--bg),var(--bg-2));
+  color:var(--text-on-bg);
+}
 
-body{display:flex;flex-direction:column;align-items:center;gap:18px;padding:20px}
+body{display:flex;flex-direction:column;align-items:center;gap:20px;padding:28px}
 
-.top{width:100%;max-width:var(--max-width);display:flex;flex-direction:column;align-items:center;gap:12px;padding:18px}
-.top .name{margin:0;font-size:1.9rem;text-align:center}
-.profile-pic{border:4px solid var(--card-bg);border-radius:8px;width:180px;height:auto;transition:transform .2s}
-.profile-pic:hover{transform:scale(1.02)}
-.summary-text{margin:6px 0 0 0;max-width:880px;line-height:1.5;text-align:center}
+/* Top */
+.top{width:100%;max-width:var(--max-width);display:flex;flex-direction:column;align-items:center;gap:14px;padding:22px}
+.top .name{margin:0;font-size:2rem;text-align:center;color:var(--text-on-bg);letter-spacing:0.6px}
+.profile-pic{border:4px solid rgba(255,255,255,0.08);border-radius:10px;width:180px;height:auto;transition:transform .18s ease, box-shadow .18s}
+.profile-pic:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(2,6,23,0.45)}
+.summary-text{margin:6px 0 0 0;max-width:900px;line-height:1.6;text-align:center;color:var(--text-on-bg);opacity:0.95}
 
-.list{width:100%;max-width:var(--max-width);background:var(--card-bg);color:var(--text-on-card);padding:18px;border-radius:8px;box-shadow:0 6px 18px rgba(0,0,0,0.08);text-align:left}
-.list h2{margin-top:0;text-decoration:underline}
-.list ul{margin:8px 0 0 1rem}
+/* Card sections */
+.list{width:100%;max-width:var(--max-width);background:var(--card-bg);color:var(--text-on-card);padding:20px;border-radius:12px;box-shadow:0 10px 30px rgba(2,6,23,0.25);text-align:left}
+.list h2{margin-top:0;color:var(--082030);text-decoration:underline;color:var(--text-on-card)}
+.list ul{margin:10px 0 0 1.1rem}
+.list li{margin:6px 0}
 
-a{color:var(--accent)}
+.a{color:var(--accent)}
+.a:hover{text-decoration:underline}
 .utility{display:flex;align-items:center;gap:8px}
-.flag{width:18px;height:18px;vertical-align:middle}
-.language{color:var(--text-on-bg)}
+.flag{width:18px;height:18px;vertical-align:middle;border-radius:3px}
+.language{color:var(--text-on-bg);font-weight:600}
 
-footer{color:var(--text-on-bg);opacity:.9}
+footer{color:var(--muted);opacity:0.95}
 
-@media (min-width:640px){
-  .top{flex-direction:row;align-items:flex-start;gap:20px;padding:24px}
-  .top .name{flex:1;text-align:left;font-size:2.4rem}
-  .profile-pic{width:220px}
+/* Layout breakpoints */
+@media (min-width:700px){
+  .top{flex-direction:row;align-items:flex-start;gap:26px;padding:28px}
+  .top .name{flex:1;text-align:left;font-size:2.6rem}
+  .profile-pic{width:240px}
   .summary-text{text-align:left}
 }
 
-@media (min-width:992px){
-  .top{gap:32px}
+@media (min-width:1200px){
+  .top{gap:36px}
   .profile-pic{width:320px}
-  .top .name{font-size:2.8rem}
+  .top .name{font-size:3rem}
 }
 
 @media (max-width:420px){
   .profile-pic{width:140px}
-  .top .name{font-size:1.4rem}
+  .top .name{font-size:1.6rem}
 }
 
-hr{width:100%;max-width:var(--max-width);border:0;border-top:1px solid rgba(0,0,0,0.06)}
-/* Base reset and variables */
-:root{
-  --bg: #1E2A5E;
-  --accent: #1E2A5E;
-  --card-bg: #ffffff;
-  --text-on-bg: #ffffff;
-  --text-on-card: #1E2A5E;
-  --max-width: 1000px;
-}
+hr{width:100%;max-width:var(--max-width);border:0;height:1px;background:linear-gradient(90deg,rgba(6,182,212,0.12),rgba(245,158,11,0.06));margin:6px 0}
 
-*{box-sizing:border-box}
-html,body{
-  height:100%;
-  margin:0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-  background: var(--bg);
-  color:var(--text-on-bg);
-}
+/* Small utility: highlight label */
+.label-accent{display:inline-block;padding:6px 10px;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#fff;border-radius:999px;font-weight:600;font-size:.85rem}
 
-/* Page layout: center content and give comfortable max width */
-body{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:18px;
-  padding:20px;
-}
-
-/* Top section: name, picture, and summary */
-.top{
-  background:var(--bg);
-  width:100%;
-  max-width:var(--max-width);
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:12px;
-  padding:18px;
-}
-
-.top .name{
-  margin:0;
-  font-size:1.9rem;
-  text-align:center;
-}
-
-.profile-pic{
-  border:4px solid var(--card-bg);
-  border-radius:8px;
-  width:180px;
-  height:auto;
-  transition:transform .2s ease;
-}
-.profile-pic:hover{transform:scale(1.02)}
-
-.summary-header{margin:6px 0 0 0}
-.summary-text{
-  margin:6px 0 0 0;
-  max-width:880px;
-  line-height:1.5;
-  text-align:center;
-}
-
-/* Card-style sections */
-.list{
-  width:100%;
-  max-width:var(--max-width);
-  background:var(--card-bg);
-  color:var(--text-on-card);
-  padding:18px;
-  border-radius:8px;
-  box-shadow:0 6px 18px rgba(0,0,0,0.08);
-  text-align:left;
-}
-
-.list h2{margin-top:0;text-decoration:underline}
-.list ul{margin:8px 0 0 1rem}
-
-a{color:var(--accent)}
-
-.flag{width:18px;height:18px;margin-left:8px;vertical-align:middle}
-.language{color:var(--text-on-bg);margin-right:6px}
-
-footer{color:var(--text-on-bg);opacity:.9}
-
-/* Responsive layouts */
-@media (min-width:640px){
-  .top{flex-direction:row;align-items:flex-start;gap:20px;padding:24px}
-  .top .name{flex:1;text-align:left;font-size:2.4rem}
-  .profile-pic{width:220px}
-  .summary-text{text-align:left}
-}
-
-@media (min-width:992px){
-  .top{gap:32px}
-  .profile-pic{width:320px}
-  .top .name{font-size:2.8rem}
-}
-
-@media (max-width:420px){
-  .profile-pic{width:140px}
-  .top .name{font-size:1.4rem}
-}
-
-/* Utility spacing to separate sections visually */
-hr{width:100%;max-width:var(--max-width);border:0;border-top:1px solid rgba(255,255,255,0.12)}
-/* Base reset and variables */
-:root{
-  --bg: #1E2A5E;
-  --accent: #1E2A5E;
-  --card-bg: #ffffff;
-  --text-on-bg: #ffffff;
-  --text-on-card: #1E2A5E;
-  --max-width: 1000px;
-}
-
-*{box-sizing:border-box}
-html,body{
-  height:100%;
-  margin:0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-  background: var(--bg);
-  color:var(--text-on-bg);
-}
-
-/* Page layout: center content and give comfortable max width */
-body{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:18px;
-  padding:20px;
-}
-
-/* Top section: name, picture, and summary */
-.top{
-  background:var(--bg);
-  width:100%;
-  max-width:var(--max-width);
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:12px;
-  padding:18px;
-}
-
-.top .name{
-  margin:0;
-  font-size:1.9rem;
-  text-align:center;
-}
-
-.profile-pic{
-  border:4px solid var(--card-bg);
-  border-radius:8px;
-  width:180px;
-  height:auto;
-  transition:transform .2s ease;
-}
-.profile-pic:hover{transform:scale(1.02)}
-
-.summary-header{margin:6px 0 0 0}
-.summary-text{
-  margin:6px 0 0 0;
-  max-width:880px;
-  line-height:1.5;
-  text-align:center;
-}
-
-/* Card-style sections */
-.list{
-  width:100%;
-  max-width:var(--max-width);
-  background:var(--card-bg);
-  color:var(--text-on-card);
-  padding:18px;
-  border-radius:8px;
-  box-shadow:0 6px 18px rgba(0,0,0,0.08);
-  text-align:left;
-}
-
-.list h2{margin-top:0;text-decoration:underline}
-.list ul{margin:8px 0 0 1rem}
-
-a{color:var(--accent)}
-
-.flag{width:18px;height:18px;margin-left:8px;vertical-align:middle}
-.language{color:var(--text-on-bg);margin-right:6px}
-
-footer{color:var(--text-on-bg);opacity:.9}
-
-/* Responsive layouts */
-@media (min-width:640px){
-  .top{flex-direction:row;align-items:flex-start;gap:20px;padding:24px}
-  .top .name{flex:1;text-align:left;font-size:2.4rem}
-  .profile-pic{width:220px}
-  .summary-text{text-align:left}
-}
-
-@media (min-width:992px){
-  .top{gap:32px}
-  .profile-pic{width:320px}
-  .top .name{font-size:2.8rem}
-}
-
-@media (max-width:420px){
-  .profile-pic{width:140px}
-  .top .name{font-size:1.4rem}
-}
-
-/* Utility spacing to separate sections visually */
-hr{width:100%;max-width:var(--max-width);border:0;border-top:1px solid rgba(255,255,255,0.12)}
-html {
-    background-color: #1E2A5E;
-    color: white; 
-}
-
-
-.top {
-    background-color: #1E2A5E;
-    padding: 15px 15px;
-    width: 50%;
-    margin-left: 25%;
-    
-}
-
-
-
-.profile-pic {
-    border:5px solid white;
-    
-}
-
-h2 {
-    text-decoration: underline;
-}
-
-ul {
-    text-align: left;
-}
-
-.list {
-    color:#1E2A5E;
-    background-color: white;
-    padding: 15px 15px;
-    ```css
-    /* Base reset and variables */
-    :root{
-        --bg: #1E2A5E;
-        --accent: #1E2A5E;
-        --card-bg: #ffffff;
-        --text-on-bg: #ffffff;
-        --text-on-card: #1E2A5E;
-        --max-width: 1000px;
-    }
-
-    *{box-sizing:border-box}
-    html,body{
-        height:100%;
-        margin:0;
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-        background: var(--bg);
-        color:var(--text-on-bg);
-    }
-
-    /* Page layout: center content and give comfortable max width */
-    body{
-        display:flex;
-        flex-direction:column;
-        align-items:center;
-        gap:18px;
-        padding:20px;
-    }
-
-    /* Top section: name, picture, and summary */
-    .top{
-        background:var(--bg);
-        width:100%;
-        max-width:var(--max-width);
-        display:flex;
-        flex-direction:column;
-        align-items:center;
-        gap:12px;
-        padding:18px;
-    }
-
-    .top .name{
-        margin:0;
-        font-size:1.9rem;
-        text-align:center;
-    }
-
-    .profile-pic{
-        border:4px solid var(--card-bg);
-        border-radius:8px;
-        width:180px;
-        height:auto;
-        transition:transform .2s ease;
-    }
-    .profile-pic:hover{transform:scale(1.02)}
-
-    .summary-header{margin:6px 0 0 0}
-    .summary-text{
-        margin:6px 0 0 0;
-        max-width:880px;
-        line-height:1.5;
-        text-align:center;
-    }
-
-    /* Card-style sections */
-    .list{
-        width:100%;
-        max-width:var(--max-width);
-        background:var(--card-bg);
-        color:var(--text-on-card);
-        padding:18px;
-        border-radius:8px;
-        box-shadow:0 6px 18px rgba(0,0,0,0.08);
-        text-align:left;
-    }
-
-    .list h2{margin-top:0;text-decoration:underline}
-    .list ul{margin:8px 0 0 1rem}
-
-    a{color:var(--accent)}
-
-    .flag{width:18px;height:18px;margin-left:8px;vertical-align:middle}
-    .language{color:var(--text-on-bg);margin-right:6px}
-
-    footer{color:var(--text-on-bg);opacity:.9}
-
-    /* Responsive layouts */
-    @media (min-width:640px){
-        .top{flex-direction:row;align-items:flex-start;gap:20px;padding:24px}
-        .top .name{flex:1;text-align:left;font-size:2.4rem}
-        .profile-pic{width:220px}
-        .summary-text{text-align:left}
-    }
-
-    @media (min-width:992px){
-        .top{gap:32px}
-        .profile-pic{width:320px}
-        .top .name{font-size:2.8rem}
-    }
-
-    @media (max-width:420px){
-        .profile-pic{width:140px}
-        .top .name{font-size:1.4rem}
-    }
-
-    /* Utility spacing to separate sections visually */
-    hr{width:100%;max-width:var(--max-width);border:0;border-top:1px solid rgba(255,255,255,0.12)}
-
-    ```
