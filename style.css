@@ -1,53 +1,181 @@
-html {
-    background-color: #1E2A5E;
-    color: white; 
+/*
+  style.css
+  Purpose: Site-wide styles for the HTML resume. Contains color variables,
+  responsive layout, typographic rules, and interactive/animation styles.
+  Notes: Respect prefers-reduced-motion. Uses Inter from Google Fonts.
+*/
+
+/* Responsive resume stylesheet — refreshed palette + flexbox layout */
+/* Import a modern, readable webfont */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+
+:root{
+  /* New accessible palette: deep navy background, soft cards, teal accent, warm gold for highlights */
+  --bg: #081228;           /* deep navy */
+  --bg-2: #0f2740;         /* subtle gradient secondary */
+  --card-bg: #FFFFFF;      /* cards */
+  --text-on-bg: #E6F2FF;   /* light text on dark */
+  --text-on-card: #082030; /* dark text on card */
+  --accent: #06b6d4;      /* teal */
+  --muted: #94a3b8;       /* muted slate */
+  --accent-2: #F59E0B;    /* warm gold accent */
+  /* Typography */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  --base-size: 16px;
+  --rhythm: 1.45;
+  --max-width: 1080px;
 }
 
-
-.top {
-    background-color: #1E2A5E;
-    padding: 15px 15px;
-    width: 50%;
-    margin-left: 25%;
-    
+*{box-sizing:border-box}
+/* Skip link: hidden until focused for keyboard users */
+.skip-link{position:absolute;left:-9999px;top:auto;background:var(--card-bg);color:var(--text-on-card);padding:8px 12px;border-radius:4px;z-index:1000}
+.skip-link:focus, .skip-link:focus-visible{left:20px;top:20px}
+html,body{
+  height:100%;
+  margin:0;
+  padding:0;
+  font-family: var(--font-sans);
+  font-size:var(--base-size);
+  line-height:var(--rhythm);
+  background: linear-gradient(180deg,var(--bg),var(--bg-2));
+  color:var(--text-on-bg);
 }
 
+body{display:flex;flex-direction:column;align-items:center;gap:20px;padding:28px}
 
+/* Top */
+.top{width:100%;max-width:var(--max-width);display:flex;flex-direction:column;align-items:center;gap:14px;padding:22px}
+.top .name{margin:0;font-size:clamp(1.6rem, 2.6vw + 1rem, 3rem);text-align:center;color:var(--text-on-bg);letter-spacing:0.4px;font-weight:700}
+.profile-pic{border:4px solid rgba(255,255,255,0.08);border-radius:10px;width:180px;height:auto;transition:transform .18s ease, box-shadow .18s}
+.profile-pic:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(2,6,23,0.45)}
+.summary-text{margin:6px 0 0 0;max-width:900px;line-height:1.6;text-align:center;color:var(--text-on-bg);opacity:0.95;font-size:clamp(.95rem, .8vw + .9rem, 1.05rem);font-weight:400}
 
-.profile-pic {
-    border:5px solid white;
-    
+/* Card sections */
+.list{width:100%;max-width:var(--max-width);background:var(--card-bg);color:var(--text-on-card);padding:20px;border-radius:12px;box-shadow:0 10px 30px rgba(2,6,23,0.25);text-align:left;font-size:1rem}
+.list h2{margin-top:0;color:var(--accent-2);font-weight:700;font-size:clamp(1rem, 1.6vw + .6rem, 1.4rem);margin-bottom:8px}
+.list ul{margin:10px 0 0 1.1rem}
+.list li{margin:6px 0;color:var(--text-on-card);line-height:1.5}
+.a{color:var(--accent)}
+.a:hover{text-decoration:underline}
+.language:focus, a:focus{outline:3px solid rgba(6,182,212,0.25);outline-offset:2px}
+.utility{display:flex;align-items:center;gap:8px}
+.flag{width:18px;height:18px;vertical-align:middle;border-radius:3px}
+.language{color:var(--text-on-bg);font-weight:600}
+
+footer{color:var(--muted);opacity:0.95}
+
+/* Layout breakpoints */
+@media (min-width:700px){
+  .top{flex-direction:row;align-items:flex-start;gap:26px;padding:28px}
+  .top .name{flex:1;text-align:left;font-size:2.6rem}
+  .profile-pic{width:240px}
+  .summary-text{text-align:left}
 }
 
-h2 {
-    text-decoration: underline;
+@media (min-width:1200px){
+  .top{gap:36px}
+  .profile-pic{width:320px}
+  .top .name{font-size:3rem}
 }
 
-ul {
-    text-align: left;
+@media (max-width:420px){
+  .profile-pic{width:140px}
+  .top .name{font-size:1.6rem}
 }
 
-.list {
-    color:#1E2A5E;
-    background-color: white;
-    padding: 15px 15px;
-    text-align: center;
+hr{width:100%;max-width:var(--max-width);border:0;height:1px;background:linear-gradient(90deg,rgba(6,182,212,0.12),rgba(245,158,11,0.06));margin:6px 0}
+
+/* Small utility: highlight label */
+.label-accent{display:inline-block;padding:6px 10px;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#fff;border-radius:999px;font-weight:700;font-size:.9rem;letter-spacing:0.3px}
+
+/* Quote card tweaks */
+.quote-card{display:block;margin:4px 0 10px}
+.quote-text{font-style:italic;margin:8px 0;padding-left:12px;border-left:4px solid rgba(6,182,212,0.18);color:var(--accent);font-size:clamp(.98rem, .5vw + 1rem, 1.06rem)}
+.quote-controls{margin-top:8px}
+.quote-controls button{cursor:pointer}
+
+/* Link styles: modern gradient underline, accessible focus, and subtle color transitions */
+a, a:link, a:visited{
+  color:var(--accent);
+  text-decoration:none;
+  font-weight:600;
+  position:relative;
+  transition: color .14s ease, transform .08s ease;
 }
 
-a {
-    color: #1E2A5E;
+/* Animated underline using a pseudo element for smooth cross-browser behavior */
+a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-3px;
+  height:3px;
+  width:100%;
+  background: linear-gradient(90deg,var(--accent),var(--accent-2));
+  transform: scaleX(0);
+  transform-origin:left;
+  transition: transform .18s cubic-bezier(.2,.9,.2,1);
+  border-radius:2px;
+  pointer-events:none;
 }
 
-.flag {
-    width: 15px;
-    height: 15px;
-    margin-left: 10px;
+a:hover::after, a:focus::after{
+  transform: scaleX(1);
 }
 
-.language {
-    color:white;
+a:hover, a:focus{
+  color:var(--accent-2);
 }
 
-footer {
-    margin-top: 10px;
+/* Better keyboard focus ring */
+a:focus-visible{
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(6,182,212,0.12);
+  border-radius:4px;
 }
+
+/* Links inside cards use the same accent but slightly darker on hover for contrast */
+.list a, .list a:link, .list a:visited{
+  color:var(--accent);
+}
+.list a:hover, .list a:focus{
+  color:var(--accent-2);
+}
+
+/* Muted visited state to avoid too-bright visited colors */
+a:visited{opacity:0.95}
+
+/* Animations: subtle entrance for cards and small UI feedback
+   - fadeUp: used on .list elements for a gentle slide-up entrance
+   - pulse: used for small accents if desired
+   Accessibility: animations disabled when user prefers reduced motion.
+*/
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(10px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+@keyframes pulse{
+  0%{transform:scale(1)}
+  50%{transform:scale(1.03)}
+  100%{transform:scale(1)}
+}
+
+/* Apply entrance animation to primary content cards with a small stagger */
+.list{opacity:0;transform:translateY(10px);animation:fadeUp .48s cubic-bezier(.2,.9,.2,1) both;}
+.list:nth-of-type(1){animation-delay:0.06s}
+.list:nth-of-type(2){animation-delay:0.12s}
+.list:nth-of-type(3){animation-delay:0.18s}
+.list:nth-of-type(4){animation-delay:0.24s}
+.list:nth-of-type(5){animation-delay:0.30s}
+.list:nth-of-type(6){animation-delay:0.36s}
+.list:nth-of-type(7){animation-delay:0.42s}
+
+/* Small hover pulse for the primary accent label */
+.label-accent:active{animation:pulse .32s ease}
+
+/* Respect user's reduced motion preference */
+@media (prefers-reduced-motion: reduce){
+  .list, .profile-pic, a, .quote-controls button, .label-accent{animation:none !important;transition:none !important}
+}
+
