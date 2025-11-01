@@ -72,3 +72,9 @@ hr{width:100%;max-width:var(--max-width);border:0;height:1px;background:linear-g
 /* Small utility: highlight label */
 .label-accent{display:inline-block;padding:6px 10px;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#fff;border-radius:999px;font-weight:600;font-size:.85rem}
 
+/* Quote card tweaks */
+.quote-card{display:block;margin:4px 0 10px}
+.quote-text{font-style:italic;margin:8px 0;padding-left:8px;border-left:3px solid rgba(6,182,212,0.18)}
+.quote-controls{margin-top:8px}
+.quote-controls button{cursor:pointer}
+
