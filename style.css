@@ -1,3 +1,266 @@
+/* Responsive resume stylesheet — flexbox layout + media queries */
+:root{
+  --bg: #1E2A5E;
+  --accent: #1E2A5E;
+  --card-bg: #ffffff;
+  --text-on-bg: #ffffff;
+  --text-on-card: #1E2A5E;
+  --max-width: 1000px;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;padding:0;font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;background:var(--bg);color:var(--text-on-bg)}
+
+body{display:flex;flex-direction:column;align-items:center;gap:18px;padding:20px}
+
+.top{width:100%;max-width:var(--max-width);display:flex;flex-direction:column;align-items:center;gap:12px;padding:18px}
+.top .name{margin:0;font-size:1.9rem;text-align:center}
+.profile-pic{border:4px solid var(--card-bg);border-radius:8px;width:180px;height:auto;transition:transform .2s}
+.profile-pic:hover{transform:scale(1.02)}
+.summary-text{margin:6px 0 0 0;max-width:880px;line-height:1.5;text-align:center}
+
+.list{width:100%;max-width:var(--max-width);background:var(--card-bg);color:var(--text-on-card);padding:18px;border-radius:8px;box-shadow:0 6px 18px rgba(0,0,0,0.08);text-align:left}
+.list h2{margin-top:0;text-decoration:underline}
+.list ul{margin:8px 0 0 1rem}
+
+a{color:var(--accent)}
+.utility{display:flex;align-items:center;gap:8px}
+.flag{width:18px;height:18px;vertical-align:middle}
+.language{color:var(--text-on-bg)}
+
+footer{color:var(--text-on-bg);opacity:.9}
+
+@media (min-width:640px){
+  .top{flex-direction:row;align-items:flex-start;gap:20px;padding:24px}
+  .top .name{flex:1;text-align:left;font-size:2.4rem}
+  .profile-pic{width:220px}
+  .summary-text{text-align:left}
+}
+
+@media (min-width:992px){
+  .top{gap:32px}
+  .profile-pic{width:320px}
+  .top .name{font-size:2.8rem}
+}
+
+@media (max-width:420px){
+  .profile-pic{width:140px}
+  .top .name{font-size:1.4rem}
+}
+
+hr{width:100%;max-width:var(--max-width);border:0;border-top:1px solid rgba(0,0,0,0.06)}
+/* Base reset and variables */
+:root{
+  --bg: #1E2A5E;
+  --accent: #1E2A5E;
+  --card-bg: #ffffff;
+  --text-on-bg: #ffffff;
+  --text-on-card: #1E2A5E;
+  --max-width: 1000px;
+}
+
+*{box-sizing:border-box}
+html,body{
+  height:100%;
+  margin:0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  background: var(--bg);
+  color:var(--text-on-bg);
+}
+
+/* Page layout: center content and give comfortable max width */
+body{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:18px;
+  padding:20px;
+}
+
+/* Top section: name, picture, and summary */
+.top{
+  background:var(--bg);
+  width:100%;
+  max-width:var(--max-width);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:12px;
+  padding:18px;
+}
+
+.top .name{
+  margin:0;
+  font-size:1.9rem;
+  text-align:center;
+}
+
+.profile-pic{
+  border:4px solid var(--card-bg);
+  border-radius:8px;
+  width:180px;
+  height:auto;
+  transition:transform .2s ease;
+}
+.profile-pic:hover{transform:scale(1.02)}
+
+.summary-header{margin:6px 0 0 0}
+.summary-text{
+  margin:6px 0 0 0;
+  max-width:880px;
+  line-height:1.5;
+  text-align:center;
+}
+
+/* Card-style sections */
+.list{
+  width:100%;
+  max-width:var(--max-width);
+  background:var(--card-bg);
+  color:var(--text-on-card);
+  padding:18px;
+  border-radius:8px;
+  box-shadow:0 6px 18px rgba(0,0,0,0.08);
+  text-align:left;
+}
+
+.list h2{margin-top:0;text-decoration:underline}
+.list ul{margin:8px 0 0 1rem}
+
+a{color:var(--accent)}
+
+.flag{width:18px;height:18px;margin-left:8px;vertical-align:middle}
+.language{color:var(--text-on-bg);margin-right:6px}
+
+footer{color:var(--text-on-bg);opacity:.9}
+
+/* Responsive layouts */
+@media (min-width:640px){
+  .top{flex-direction:row;align-items:flex-start;gap:20px;padding:24px}
+  .top .name{flex:1;text-align:left;font-size:2.4rem}
+  .profile-pic{width:220px}
+  .summary-text{text-align:left}
+}
+
+@media (min-width:992px){
+  .top{gap:32px}
+  .profile-pic{width:320px}
+  .top .name{font-size:2.8rem}
+}
+
+@media (max-width:420px){
+  .profile-pic{width:140px}
+  .top .name{font-size:1.4rem}
+}
+
+/* Utility spacing to separate sections visually */
+hr{width:100%;max-width:var(--max-width);border:0;border-top:1px solid rgba(255,255,255,0.12)}
+/* Base reset and variables */
+:root{
+  --bg: #1E2A5E;
+  --accent: #1E2A5E;
+  --card-bg: #ffffff;
+  --text-on-bg: #ffffff;
+  --text-on-card: #1E2A5E;
+  --max-width: 1000px;
+}
+
+*{box-sizing:border-box}
+html,body{
+  height:100%;
+  margin:0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  background: var(--bg);
+  color:var(--text-on-bg);
+}
+
+/* Page layout: center content and give comfortable max width */
+body{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:18px;
+  padding:20px;
+}
+
+/* Top section: name, picture, and summary */
+.top{
+  background:var(--bg);
+  width:100%;
+  max-width:var(--max-width);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:12px;
+  padding:18px;
+}
+
+.top .name{
+  margin:0;
+  font-size:1.9rem;
+  text-align:center;
+}
+
+.profile-pic{
+  border:4px solid var(--card-bg);
+  border-radius:8px;
+  width:180px;
+  height:auto;
+  transition:transform .2s ease;
+}
+.profile-pic:hover{transform:scale(1.02)}
+
+.summary-header{margin:6px 0 0 0}
+.summary-text{
+  margin:6px 0 0 0;
+  max-width:880px;
+  line-height:1.5;
+  text-align:center;
+}
+
+/* Card-style sections */
+.list{
+  width:100%;
+  max-width:var(--max-width);
+  background:var(--card-bg);
+  color:var(--text-on-card);
+  padding:18px;
+  border-radius:8px;
+  box-shadow:0 6px 18px rgba(0,0,0,0.08);
+  text-align:left;
+}
+
+.list h2{margin-top:0;text-decoration:underline}
+.list ul{margin:8px 0 0 1rem}
+
+a{color:var(--accent)}
+
+.flag{width:18px;height:18px;margin-left:8px;vertical-align:middle}
+.language{color:var(--text-on-bg);margin-right:6px}
+
+footer{color:var(--text-on-bg);opacity:.9}
+
+/* Responsive layouts */
+@media (min-width:640px){
+  .top{flex-direction:row;align-items:flex-start;gap:20px;padding:24px}
+  .top .name{flex:1;text-align:left;font-size:2.4rem}
+  .profile-pic{width:220px}
+  .summary-text{text-align:left}
+}
+
+@media (min-width:992px){
+  .top{gap:32px}
+  .profile-pic{width:320px}
+  .top .name{font-size:2.8rem}
+}
+
+@media (max-width:420px){
+  .profile-pic{width:140px}
+  .top .name{font-size:1.4rem}
+}
+
+/* Utility spacing to separate sections visually */
+hr{width:100%;max-width:var(--max-width);border:0;border-top:1px solid rgba(255,255,255,0.12)}
 html {
     background-color: #1E2A5E;
     color: white; 
@@ -31,23 +294,112 @@ ul {
     color:#1E2A5E;
     background-color: white;
     padding: 15px 15px;
-    text-align: center;
-}
+    ```css
+    /* Base reset and variables */
+    :root{
+        --bg: #1E2A5E;
+        --accent: #1E2A5E;
+        --card-bg: #ffffff;
+        --text-on-bg: #ffffff;
+        --text-on-card: #1E2A5E;
+        --max-width: 1000px;
+    }
 
-a {
-    color: #1E2A5E;
-}
+    *{box-sizing:border-box}
+    html,body{
+        height:100%;
+        margin:0;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+        background: var(--bg);
+        color:var(--text-on-bg);
+    }
 
-.flag {
-    width: 15px;
-    height: 15px;
-    margin-left: 10px;
-}
+    /* Page layout: center content and give comfortable max width */
+    body{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        gap:18px;
+        padding:20px;
+    }
 
-.language {
-    color:white;
-}
+    /* Top section: name, picture, and summary */
+    .top{
+        background:var(--bg);
+        width:100%;
+        max-width:var(--max-width);
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        gap:12px;
+        padding:18px;
+    }
 
-footer {
-    margin-top: 10px;
-}
+    .top .name{
+        margin:0;
+        font-size:1.9rem;
+        text-align:center;
+    }
+
+    .profile-pic{
+        border:4px solid var(--card-bg);
+        border-radius:8px;
+        width:180px;
+        height:auto;
+        transition:transform .2s ease;
+    }
+    .profile-pic:hover{transform:scale(1.02)}
+
+    .summary-header{margin:6px 0 0 0}
+    .summary-text{
+        margin:6px 0 0 0;
+        max-width:880px;
+        line-height:1.5;
+        text-align:center;
+    }
+
+    /* Card-style sections */
+    .list{
+        width:100%;
+        max-width:var(--max-width);
+        background:var(--card-bg);
+        color:var(--text-on-card);
+        padding:18px;
+        border-radius:8px;
+        box-shadow:0 6px 18px rgba(0,0,0,0.08);
+        text-align:left;
+    }
+
+    .list h2{margin-top:0;text-decoration:underline}
+    .list ul{margin:8px 0 0 1rem}
+
+    a{color:var(--accent)}
+
+    .flag{width:18px;height:18px;margin-left:8px;vertical-align:middle}
+    .language{color:var(--text-on-bg);margin-right:6px}
+
+    footer{color:var(--text-on-bg);opacity:.9}
+
+    /* Responsive layouts */
+    @media (min-width:640px){
+        .top{flex-direction:row;align-items:flex-start;gap:20px;padding:24px}
+        .top .name{flex:1;text-align:left;font-size:2.4rem}
+        .profile-pic{width:220px}
+        .summary-text{text-align:left}
+    }
+
+    @media (min-width:992px){
+        .top{gap:32px}
+        .profile-pic{width:320px}
+        .top .name{font-size:2.8rem}
+    }
+
+    @media (max-width:420px){
+        .profile-pic{width:140px}
+        .top .name{font-size:1.4rem}
+    }
+
+    /* Utility spacing to separate sections visually */
+    hr{width:100%;max-width:var(--max-width);border:0;border-top:1px solid rgba(255,255,255,0.12)}
+
+    ```
